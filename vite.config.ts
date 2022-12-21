@@ -105,21 +105,8 @@ export default ({ mode }: ConfigEnv) => {
         ]
       }),
       examplePlugin(mode),
-      monacoEditorPlugin({ publicPath: "example/assets-monaco" }),
-      {
-        ...copyPlugin({
-          hook: "closeBundle",
-          targets: [
-            {
-              src: "src/example/**/*.*",
-              dest: "dist/example",
-              rename: (_name, _extension, fullPath) => {
-                return fullPath.split("example")[1]
-              }
-            }
-          ]
-        })
-      }
+      monacoEditorPlugin({ publicPath: "example/assets-monaco" })
+
     ]
   })
 }

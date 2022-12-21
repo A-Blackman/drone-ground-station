@@ -152,7 +152,7 @@ function MarsExampleList({ exampleList, jump, packageName, totalCount }) {
               <div className="side1-item">
                 <i className={"fa" || item.icon}></i>
                 <p className="name">
-                  {item.name} ({item.count})
+                  {item.name}
                 </p>
                 <MarsIcon icon="right" size="24" fill="#fff"></MarsIcon>
               </div>
@@ -161,120 +161,23 @@ function MarsExampleList({ exampleList, jump, packageName, totalCount }) {
                   <div className="side2-item" key={index}>
                     <span>·</span>
                     <a className="a" href={"#" + item.id}>
-                      {item.name} ({item.count})
+                      {item.name}
                     </a>
                   </div>
                 ))}
               </div>
             </div>
           ))}
-          <div className="download">
-            <div>【共 {totalCount} 个示例】</div>
-            <div>
-              <p onClick={() => downloadFile(packageName + "功能清单.txt", getAllName(packageName, exampleList))}>下载功能清单.txt</p>
-            </div>
-            <div>
-              <p onClick={() => downloadFile(packageName + "功能清单.csv", getVerDiff(exampleList))}>下载功能清单.csv</p>
-            </div>
-          </div>
         </div>
 
         {/* 主体 */}
         <div className="contain">
-          {/* 搜索框 */}
-          <div className={"search-wrap"}>
-            <div className="search-l">
-              <input value={inputValue} onChange={(e) => searchText(e)} className="search-i" color="#fff" placeholder="请输入示例名称筛选..." />
-              <div className="ss-pic">
-                <MarsIcon icon="search" size="24" fill="#fff"></MarsIcon>
-              </div>
-              <div className="clear-value" style={{ display: inputValue ? "block" : "none" }} onClick={() => setInputValue("")}>
-                <MarsIcon icon="close" size="24"></MarsIcon>
-              </div>
-            </div>
-
-            <div className="search-r">
-              <MarsIcon className="help" icon="search" size="20" fill="#bbbbbb"></MarsIcon>
-              <p className="look">查看说明</p>
-              <div className="sanjiao"></div>
-              <div className="sanjiao-1"></div>
-              <div className="explain">
-                <div className="explain-wrap">
-                  <div className="sm-pic">
-                    <MarsIcon icon="agreement" size="24" fill="#008aff"></MarsIcon>
-                  </div>
-                  <div className="sm">说明</div>
-                  <div className="line1">
-                    <span></span>
-                  </div>
-                </div>
-                <p>
-                  1. 您可以访问
-                  <a href={`https://gitee.com/marsgis/${packageName}-vue-example`} target="_black">
-                    GitHub
-                  </a>
-                  下载当前示例代码到本地运行
-                </p>
-                <p>2. 名称内有 demo 的属于存在已知问题的示例，此处仅做演示</p>
-                <p>
-                  3. 如果您访问体验当中发现bug问题或有好的建议，欢迎随时反馈给
-                  <a href="http://marsgis.cn/weixin.html" target="_blank" rel="noreferrer">
-                    我们
-                  </a>
-                  .
-                </p>
-                <p>
-                  4. 如果缺少您想要的示例，可以整理需求发送邮件至
-                  <a href="mailto:wh@marsgis.cn" rel="nofollow">
-                    wh@marsgis.cn
-                  </a>
-                </p>
-                <p>
-                  <a target="_black" href={`https://www.npmjs.com/package/${packageName}`}>
-                    <img alt="Npm version" src={`https://img.shields.io/npm/v/${packageName}.svg?style=flat&logo=npm&label=版本号`} />
-                  </a>
-                  &nbsp;&nbsp;
-                  <a target="_black" href={`https://www.npmjs.com/package/${packageName}`}>
-                    <img alt="Npm downloads" src={`https://img.shields.io/npm/dt/${packageName}?style=flat&logo=npm&label=下载量`} />
-                  </a>
-                  &nbsp;&nbsp;
-                  <a target="_black" href={`https://github.com/marsgis/${packageName}`}>
-                    <img alt="GitHub stars" src={`https://img.shields.io/github/stars/marsgis/${packageName}?style=flat&logo=github`} />
-                  </a>
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* 示例 */}
-
           {searchList.map((item, index) => (
             <div style={{ display: item.children.length !== 0 ? "block" : "none" }} className="big" key={index}>
-              <div className="start">
-                <p>
-                  {item.name} ({item.children.length})
-                </p>
-                <div className="line">
-                  <span></span>
-                </div>
-              </div>
               {/* 创建三维场景 */}
               {item.children.map((item1, index) => (
                 <div className="three" id={item1.id} key={item1.id}>
-                  <h3>
-                    {item1.name} ({item1.children.length})
-                    <div className="question" v-if="item1.details">
-                      <MarsIcon className="icon" icon="help" size="20" fill="#bbbbbb"></MarsIcon>
-                      <div className="sanjiao1"></div>
-                      <div className="sanjiao2"></div>
-                      <div className="tan1">
-                        <p>
-                          <span className="color">说明：</span>
-                          {item1.details}
-                        </p>
-                      </div>
-                    </div>
-                  </h3>
                   <ul>
                     {item1.children.map(
                       (item2, index) =>

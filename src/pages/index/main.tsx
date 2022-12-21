@@ -3,6 +3,8 @@ import { createRoot } from "react-dom/client"
 import MarsExampleList from "@mars/components/MarsEditor/MarsExampleList"
 import { Editor as MarsgisEditor, Util } from "@marsgis/editor"
 import "@mars/assets/style/index.less"
+import { fixedRoute } from "@mars/components/fixedRoute-flight/map"
+import UIComponent from "@mars/components/fixedRoute-flight"
 import "./index.less"
 
 const jumpUrl = (item: any) => {
