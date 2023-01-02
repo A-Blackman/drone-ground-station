@@ -4,10 +4,10 @@
     "icon": "fa-puzzle-piece",
     "children": [
       {
-        "name": "漫游路线对象",
+        "name": "飞行轨迹",
         "children": [
           {
-            "name": "飞机路线",
+            "name": "飞行轨迹初板",
             "thumbnail": "graphic-custom-fixedRoute-flight.gif",
             "main": "graphic/custom/fixedRoute-flight",
             "hasPannel": true

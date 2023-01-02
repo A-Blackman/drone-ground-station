@@ -1,7 +1,7 @@
 {
   "name": "mars3d-react-example",
   "version": "3.4.0",
-  "description": "基于 React 的 Mars3D 功能示例项目",
+  "description": "基于 React 的 Mars3D 无人机地面站开发项目",
   "scripts": {
     "serve": "vite --host",
     "dev": "vite",
