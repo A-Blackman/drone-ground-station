@@ -4,11 +4,15 @@ import { Space } from "antd"
 import { useState } from "react"
 import * as mapWork from "./map.js"
 import type { GuiItem } from "@mars/components/MarsUI"
+import Dashboard from "./dashboard"
+import Airplane from "./airplane"
 
 function UIComponent() {
   const [angle, setAngle] = useState(false)
   const [isStart, setIsStart] = useState(false)
   const [isPause, setPause] = useState(false)
+  const [currWindow, setWindow] = useState<"map" | "dashboard" | "airplane">("map")
+
 
   const options: GuiItem[] = [
     {
@@ -221,7 +225,7 @@ function UIComponent() {
 
   return (
     <>
-      <MarsPannel visible={true} width={280} right={10} top={10}>
+      <MarsPannel visible={true} width={280} left={10} top={10}>
         <div className="f-mb f-tac">
           {!isStart ? (
             <MarsButton onClick={btnStart}>开始</MarsButton>
@@ -249,7 +253,19 @@ function UIComponent() {
           ""
         )}
       </MarsPannel>
-      <FixedRouteInfo />
+      {
+        currWindow !== "map" && <div
+          className={`fixed border-2 bg-green-500 cursor-pointer h-64 w-64 bottom-16 right-0 z-50`}
+        onClick={() => setWindow("map")}>
+        Map
+      </div>
+       }
+      <Dashboard
+        isOpen={currWindow === "dashboard"}
+        onClick={() => setWindow("dashboard")} />
+      <Airplane
+        isOpen={currWindow === "airplane"}
+        onClick={() => setWindow("airplane")} />
     </>
   )
 }

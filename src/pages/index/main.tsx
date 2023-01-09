@@ -37,8 +37,12 @@ const ListRenderer = () => {
       setlist(exampleList)
     })()
   }, [])
-  return <MarsExampleList exampleList={list} jump={jumpUrl} packageName={Util.apiConf.packageName} totalCount={Util.totalCount}></MarsExampleList>
-}
+  return <MarsExampleList
+    exampleList={list}
+    jump={jumpUrl}
+    packageName={Util.apiConf.packageName}
+    totalCount={Util.totalCount} />
+} 
 
 const reactApp = createRoot(document.getElementById("root"))
 reactApp.render(<ListRenderer />)
