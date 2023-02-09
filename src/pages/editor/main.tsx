@@ -61,9 +61,10 @@ function initUI(simple: boolean) {
     )
   }
 }
+
 function destoryUI() {
   reactApp.unmount()
   reactApp = null
 }
 
-marsEditor.render(document.getElementById("root"), getExampleId(), getQueryString("name"))
+marsEditor.render(document.getElementById("root"), getExampleId())

@@ -12,9 +12,6 @@ export default ({ mode }: ConfigEnv) => {
   const root = process.cwd()
   const ENV = loadEnv(mode, root)
 
-  console.log(`当前环境信息：`, mode)
-  console.log(`ENV：`, ENV)
-
   return defineConfig({
     base: ENV.VITE_BASE_URL,
     server: {
@@ -106,7 +103,6 @@ export default ({ mode }: ConfigEnv) => {
       }),
       examplePlugin(mode),
       monacoEditorPlugin({ publicPath: "example/assets-monaco" })
-
     ]
   })
 }
